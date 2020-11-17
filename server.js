@@ -32,6 +32,10 @@ app.get('/:room', (req, res) => {
     })
 })
 
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../views/room.ejs'));
+});
+
 
 
 
@@ -49,4 +53,4 @@ io.on('connection', socket => {
 
 
 
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
