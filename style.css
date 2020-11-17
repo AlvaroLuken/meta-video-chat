@@ -1,0 +1,150 @@
+/* CSS files add styling rules to your content */
+
+
+
+html *
+{
+   font-size: 1em;
+   color: #000;
+   font-family: Arial;
+}
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 2em;
+  font-weight: 300;
+
+}
+
+h1 {
+  font-style: italic;
+  color: violet;
+  align-items: center;
+  text-align: center;
+  font-size: 30px;
+
+}
+
+.food {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  background-color: #eee;
+}
+
+
+/*h5 {
+  border: solid;
+}*/
+#block_container
+{
+    text-align:left;
+}
+#bloc1, #bloc2
+{
+    display:inline;
+}
+
+#transactions {
+  margin: 10px 0;
+  background-color: violet;
+  align-items: center;
+  text-align: center;
+}
+
+
+input {
+  padding: 9px 25px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+#balance {
+  border: 1px solid black;
+  background-color: white;
+  margin: 10px 0;
+  padding: 5px 0;
+  &:before {
+    content: "Balance:";
+  }
+}
+
+.components {
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    background-color: #eee;
+    margin: 20px;
+    padding: 30px 50px;
+    text-align: center;
+    border-radius: 10px;
+
+    h1 {
+        margin: 0 0 20px;
+    }
+  }
+}
+
+.button {
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+  padding: 9px 25px;
+  font-size: 0.7em;
+  letter-spacing: 0.7px;
+  background-color: #f58427;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+.switch {
+    align-self: flex-end;
+    margin: 0.9375rem;
+}
+.inner-switch {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #555;
+    border-radius: 1.25rem;
+    width: 3.125rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.1875rem;
+    margin-left: 0.3125rem;
+}
+
+.dark,
+.dark * {
+    background-color: #222;
+    color: #e6e6e6;
+    border-color: #e6e6e6;
+}
+
+
+
+/* 
+
+
+
+
+.button {
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+  padding: 9px 25px;
+  font-size: 0.7em;
+  letter-spacing: 0.7px;
+  background-color: #f58427;
+
+  &:hover {
+    cursor: pointer;
+  }
+} 
+*/
