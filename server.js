@@ -16,7 +16,7 @@ var web3 = new Web3(Web3.givenProvider || 'http://localhost:3000');
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-
+const { ExpressPeerServer } = require('peer');
 
 
 
@@ -35,6 +35,9 @@ app.get('/:room', (req, res) => {
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../views/room.ejs'));
 });
+// =======
+
+
 
 
 
@@ -50,7 +53,10 @@ io.on('connection', socket => {
 
 
 
+const peerServer = ExpressPeerServer(server, {
+  path: '/myapp'
+});
 
-
+app.use('/peerjs', peerServer);
 
 server.listen(process.env.PORT || 3000);
