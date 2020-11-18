@@ -6,17 +6,19 @@
 
 const express = require('express')
 const app = express()
-const server = require('http').Server(app)
+//const server = require('http').Server(app)
+const server = require('http').createServer(app);
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 //const { Socket } = require('socket.io')
 const Web3 = require("web3");
 const ethers = require('ethers');
 var web3 = new Web3(Web3.givenProvider || 'http://localhost:3000');
+var ExpressPeerServer = require('peer').ExpressPeerServer;
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-const { ExpressPeerServer } = require('peer');
+
 
 
 
@@ -35,9 +37,16 @@ app.get('/:room', (req, res) => {
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '../views/room.ejs'));
 });
-// =======
 
 
+var options = {
+    debug: true
+}
+
+
+app.use('/peerjs', ExpressPeerServer(server, options));
+
+//server.listen(9000);
 
 
 
@@ -53,10 +62,7 @@ io.on('connection', socket => {
 
 
 
-const peerServer = ExpressPeerServer(server, {
-  path: '/myapp'
-});
 
-app.use('/peerjs', peerServer);
+
 
 server.listen(process.env.PORT || 3000);
